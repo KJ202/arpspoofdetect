@@ -11,7 +11,7 @@ if os.geteuid() != 0:
 	exit("Root permisson is required to operate on network interfaces. \nNow Aborting.")
 
 # Prompt to select log file
-filename = raw_input("Please input desired log file name. [spoof.log]")
+filename = ("Please input desired log file name. [spoof.log]")
 # If none specified, set to default
 if filename == "":
     filename = "spoof.log"
@@ -21,7 +21,7 @@ logging.basicConfig(format='%(levelname)s: %(asctime)s %(message)s', datefmt='%m
 # Read available network interfaces
 available_interfaces = netifaces.interfaces()
 # Ask user for desired interface
-interface = raw_input("Please select the interface you wish to use. {}\n".format(str(available_interfaces)))
+interface = input("Please select the interface you wish to use. {}\n".format(str(available_interfaces)))
 # Check if specified interface is valid
 if not interface in available_interfaces:
     exit("Interface {} not available.".format(interface))
